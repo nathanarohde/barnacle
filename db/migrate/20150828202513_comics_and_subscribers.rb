@@ -9,7 +9,7 @@ class ComicsAndSubscribers < ActiveRecord::Migration
     create_table :subscribers do |t|
       t.column :name, :string
       t.column :url, :string
-      t.references :comics
+      t.references :comic
     end
   end
 end

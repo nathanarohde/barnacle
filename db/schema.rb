@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150828202513) do
   create_table "subscribers", force: :cascade do |t|
     t.string  "name"
     t.string  "url"
-    t.integer "comics_id"
+    t.integer "comic_id"
   end
 
 end
