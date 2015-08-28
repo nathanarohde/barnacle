@@ -10,8 +10,7 @@ class Subscriber<ActiveRecord::Base
 
   def create_subscriber_list
 
-    BASE_URL= 'http://tapastic.com/swallowsofdoom/subscribers?series_id=1237'
-    BASE_SUBSCRIBER_URL = 'http://tapastic.com'
+    base_subscriber_url = 'http://tapastic.com'
 
     subscribers = []
     doc = Nokogiri::HTML(open("http://tapastic.com/swallowsofdoom/subscribers?pageNumber=1&series_id=1237"))
@@ -25,7 +24,7 @@ class Subscriber<ActiveRecord::Base
       subscriber_nodes = doc.css('li.ib/a.thumb-wrap')
       subscriber_nodes.each do |subscriber_node|
         subscriber_name = subscriber_node['href']
-        subscriber_url = BASE_SUBSCRIBER_URL
+        subscriber_url = base_subscriber_url
         subscribers << Subscriber.new(name: subscriber_name, url: subscriber_url)
       end
       i +=1
